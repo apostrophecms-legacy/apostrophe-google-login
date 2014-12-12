@@ -43,6 +43,9 @@ Third, you must configure the `apostrophe-google-login` module, along with theot
       id: 'GOOGLE_CLIENT_ID',
       secret: 'GOOGLE_CLIENT_SECRET',
 
+      // Make sure you pass in passport
+      passport: passport,
+
       // This will probably be http://localhost:3000 during development.
       // It must be the base URL of your site as seen in the browser
       baseUrl: 'http://example.com',
