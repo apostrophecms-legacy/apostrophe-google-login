@@ -81,3 +81,8 @@ module.exports = {
 To log a user in via Google, just make a link to `/apos-google-login` on your site.
 
 That's all there is to it! The user will be asked to give permission the first time. After that the link works immediately.
+
+## Stability
+
+This module currently works with both Apostrophe 0.4 and Apostrophe 0.5. If that changes, we will continue to tag 0.4 releases to maintain support for projects that use this module on 0.4 at tis current level.
+
