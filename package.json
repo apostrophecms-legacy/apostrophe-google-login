@@ -1,0 +1,28 @@
+{
+  "name": "apostrophe-google-login",
+  "version": "0.4.0",
+  "description": "google login for apostrophe sites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/punkave/apostrophe-google-login.git"
+  },
+  "keywords": [
+    "apostrophe",
+    "google",
+    "gmail",
+    "login"
+  ],
+  "author": "p'unk avenue llc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/punkave/apostrophe-google-login/issues"
+  },
+  "homepage": "https://github.com/punkave/apostrophe-google-login",
+  "dependencies": {
+    "passport-google-oauth": "^0.1.5"
+  }
+}
