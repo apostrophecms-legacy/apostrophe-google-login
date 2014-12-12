@@ -30,7 +30,7 @@ var site = require('apostrophe-site')({
 });
 ```
 
-Third, you must configure the `apostrophe-google-login` module, along with theother modules of your project:
+Third, you must configure the `apostrophe-google-login` module in `app.js`, along with the other modules of your project:
 
 ```javascript
   modules: {
