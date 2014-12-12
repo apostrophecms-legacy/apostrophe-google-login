@@ -15,27 +15,25 @@ function Construct(options, callback) {
   passport.use(new GoogleStrategy({
     clientID: options.id,
     clientSecret: options.secret,
-    callbackURL: options.baseUrl + "/apos-google-login/return"                       
-  },
-    function(accessToken, refreshToken, profile, done) {
-      var email = profile.emails[0].value;
-      return apos.pages.findOne({ email: email, type : 'person', login : true }, function(err, person){
-        if (err) {
-          return done(err);
-        }
-        else if (!person) {
-          return done(null, false);
-        }
-        return done(null, { _id : person._id, _mongodb : true });
-      });
-    }
-  ));
+    callbackURL: options.baseUrl + "/apos-google-login/return"
+  }, function(accessToken, refreshToken, profile, done) {
+    var email = profile.emails[0].value;
+    return apos.pages.findOne({ email: email, type : 'person', login : true }, function(err, person){
+      if (err) {
+        return done(err);
+      }
+      else if (!person) {
+        return done(null, false);
+      }
+      return done(null, { _id : person._id, _mongodb : true });
+    });
+  }));
 
   app.get('/apos-google-login',
     passport.authenticate('google', {scope : 'openid email'})
   );
 
-  app.get('/apos-google-login/return', 
+  app.get('/apos-google-login/return',
     passport.authenticate('google', { failureRedirect: options.failureRedirect }),
     function(req, res) {
       // Successful authentication redirect
