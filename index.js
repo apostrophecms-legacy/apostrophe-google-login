@@ -18,7 +18,7 @@ function Construct(options, callback) {
     callbackURL: options.baseUrl + "/apos-google-login/return"
   }, function(accessToken, refreshToken, profile, done) {
     var email = profile.emails[0].value;
-    return apos.pages.findOne({ email: email, type: 'person', login: true, trash: { $ne: true } }, function(err, person){
+    return apos.pages.findOne({ email: email, type : 'person', login : true }, function(err, person){
       if (err) {
         return done(err);
       }
@@ -37,11 +37,6 @@ function Construct(options, callback) {
     passport.authenticate('google', { failureRedirect: options.failureRedirect }),
     function(req, res) {
       // Successful authentication redirect
-      if (options.afterLogin) {
-        // We always want them to go somewhere specific after login,
-        // tell Apostrophe not to take a second-chance approach
-        res.cookie('aposAfterLogin', null);
-      }
       res.redirect(options.afterLogin || '/');
   });
 
