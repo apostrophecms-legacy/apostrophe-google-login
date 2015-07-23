@@ -37,6 +37,11 @@ function Construct(options, callback) {
     passport.authenticate('google', { failureRedirect: options.failureRedirect }),
     function(req, res) {
       // Successful authentication redirect
+      if (options.afterLogin) {
+        // We always want them to go somewhere specific after login,
+        // tell Apostrophe not to take a second-chance approach
+        res.cookie('aposAfterLogin', null);
+      }
       res.redirect(options.afterLogin || '/');
   });
 
