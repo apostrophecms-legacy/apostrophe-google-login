@@ -86,3 +86,11 @@ That's all there is to it! The user will be asked to give permission the first t
 
 This module currently works with both Apostrophe 0.4 and Apostrophe 0.5. If that changes, we will continue to tag 0.4 releases to maintain support for projects that use this module on 0.4 at tis current level.
 
+## Changelog
+
+### 0.4.1
+
+Ensure users are not in the trash before allowing them to log in.
+Apostrophe's deserializer also catches this now, but just to be
+doubly safe.
+

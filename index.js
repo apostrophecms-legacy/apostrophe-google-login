@@ -18,7 +18,7 @@ function Construct(options, callback) {
     callbackURL: options.baseUrl + "/apos-google-login/return"
   }, function(accessToken, refreshToken, profile, done) {
     var email = profile.emails[0].value;
-    return apos.pages.findOne({ email: email, type : 'person', login : true }, function(err, person){
+    return apos.pages.findOne({ email: email, type: 'person', login: true, trash: { $ne: true } }, function(err, person){
       if (err) {
         return done(err);
       }
